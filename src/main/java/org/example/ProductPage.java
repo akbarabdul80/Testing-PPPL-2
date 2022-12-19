@@ -29,6 +29,10 @@ public class ProductPage {
     private By cartProductQty = By.className("item-qty");
     private By counterCart = By.className("counter-number");
 
+    private By addToWishlist = By.className("towishlist");
+
+    private By messageSuccess = By.className("message-success");
+
     public ProductPage(WebDriver driver) {
         this.driver = driver;
         actions = new Actions(driver);
@@ -74,6 +78,15 @@ public class ProductPage {
     public String getQty() {
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(etQty));
         return driver.findElement(etQty).getAttribute("value");
+    }
+
+    public void addToWishlist() {
+        driver.findElement(addToWishlist).click();
+    }
+
+    public String getMessageSuccess() {
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(messageSuccess));
+        return driver.findElement(messageSuccess).getText();
     }
 
 

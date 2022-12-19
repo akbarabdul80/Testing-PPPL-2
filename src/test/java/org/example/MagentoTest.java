@@ -123,4 +123,14 @@ class MagentoTest {
         ProfilePage profilePage = loginPage.login(email, pass);
         assertTrue(Pattern.compile("(.*)" + " Asidik Alamsyah " + email + " " + "(.*)", Pattern.CASE_INSENSITIVE).matcher(profilePage.getBoxInformation()).find());
     }
+
+    @Test
+    @Order(7)
+    void testAddWishlist() {
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage.gotoDashboard();
+        ProductPage productPage = dashboardPage.clickProduct(1);
+        productPage.addToWishlist();
+        assertTrue(Pattern.compile("(.*)has been added to your Wish List(.*)", Pattern.CASE_INSENSITIVE).matcher(productPage.getMessageSuccess()).find());
+    }
 }

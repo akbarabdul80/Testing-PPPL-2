@@ -14,10 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class MagentoTest {
     private static WebDriver driver;
-
-    public static String firstname = "Asidik";
-    public static String lastname = "Alamsyah";
-
     public static String company = "PT. Software Testing Board";
     public static String address1 = "RT.01";
     public static String address2 = "RW.01";
@@ -112,7 +108,7 @@ class MagentoTest {
 
     @Test
     @Order(5)
-    void testSignOutLogin() {
+    void testSignOut() {
         HomePage homePage = new HomePage(driver);
         homePage.clickSignOut();
     }
